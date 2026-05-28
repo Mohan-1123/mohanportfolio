@@ -23,6 +23,7 @@ export default function StatCounter({ value, suffix, label }) {
           setCount(Math.floor(current))
         }
       }, duration / steps)
+      return () => clearInterval(timer)
     }
   }, [inView, value])
 
@@ -32,12 +33,12 @@ export default function StatCounter({ value, suffix, label }) {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={inView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.5 }}
-      className="text-center p-6 glass rounded-2xl"
+      className="text-center p-4 sm:p-6 glass rounded-2xl"
     >
-      <div className="text-4xl font-bold text-gradient mb-2">
+      <div className="text-3xl sm:text-4xl font-bold text-gradient mb-1 sm:mb-2">
         {count}{suffix}
       </div>
-      <div className="text-text-secondary text-sm font-medium">{label}</div>
+      <div className="text-text-secondary text-xs sm:text-sm font-medium leading-tight">{label}</div>
     </motion.div>
   )
 }

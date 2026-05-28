@@ -121,7 +121,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-[65px] left-0 right-0 z-40 lg:hidden px-4"
+            className="fixed top-16 left-0 right-0 z-40 lg:hidden px-3 sm:px-4"
           >
             <div className="glass rounded-2xl p-4 shadow-card" style={{ border: '1px solid rgba(30,58,95,0.8)' }}>
               {navLinks.map((link, i) => (
