@@ -11,7 +11,7 @@ import Contact from './components/sections/Contact'
 
 export default function App() {
   return (
-    <div style={{ backgroundColor: '#020B18', color: '#E6F1FF', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#020B18', color: '#E6F1FF', minHeight: '100vh', overflowX: 'hidden', width: '100%' }}>
       <Navbar />
       <main>
         <Hero />
