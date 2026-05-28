@@ -115,29 +115,30 @@ export default function Contact() {
               {/* Name + Email — single column on xs, 2 cols on sm+ */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
-                  <label className="block text-text-secondary text-xs sm:text-sm font-medium mb-1.5">Name *</label>
-                  <input type="text" name="name" value={form.name} onChange={handleChange}
-                    required placeholder="Your name"
+                  <label htmlFor="contact-name" className="block text-text-secondary text-xs sm:text-sm font-medium mb-1.5">Name *</label>
+                  <input id="contact-name" type="text" name="name" value={form.name} onChange={handleChange}
+                    required aria-required="true" placeholder="Your name"
                     className={inputClass} style={inputStyle}
                     onFocus={focusStyle} onBlur={blurStyle} />
                 </div>
                 <div>
-                  <label className="block text-text-secondary text-xs sm:text-sm font-medium mb-1.5">Email *</label>
-                  <input type="email" name="email" value={form.email} onChange={handleChange}
-                    required placeholder="your@email.com"
+                  <label htmlFor="contact-email" className="block text-text-secondary text-xs sm:text-sm font-medium mb-1.5">Email *</label>
+                  <input id="contact-email" type="email" name="email" value={form.email} onChange={handleChange}
+                    required aria-required="true" placeholder="your@email.com"
                     className={inputClass} style={inputStyle}
                     onFocus={focusStyle} onBlur={blurStyle} />
                 </div>
               </div>
 
               <div>
-                <label className="block text-text-secondary text-xs sm:text-sm font-medium mb-1.5">Subject *</label>
-                <select name="subject" value={form.subject} onChange={handleChange} required
+                <label htmlFor="contact-subject" className="block text-text-secondary text-xs sm:text-sm font-medium mb-1.5">Subject *</label>
+                <select id="contact-subject" name="subject" value={form.subject} onChange={handleChange}
+                  required aria-required="true"
                   className={inputClass + ' cursor-pointer'}
                   style={{ ...inputStyle, color: form.subject ? '#E6F1FF' : '#495670' }}
                   onFocus={focusStyle} onBlur={blurStyle}
                 >
-                  <option value=""          style={{ background: '#0D1F35' }}>Select a subject</option>
+                  <option value=""                       style={{ background: '#0D1F35' }}>Select a subject</option>
                   <option value="Full-time Role Inquiry" style={{ background: '#0D1F35' }}>Full-time Role Inquiry</option>
                   <option value="Freelance Project"      style={{ background: '#0D1F35' }}>Freelance Project</option>
                   <option value="Collaboration"          style={{ background: '#0D1F35' }}>Collaboration</option>
@@ -146,35 +147,38 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-text-secondary text-xs sm:text-sm font-medium mb-1.5">Message *</label>
-                <textarea name="message" value={form.message} onChange={handleChange}
-                  required rows={5} placeholder="Tell me about your project or opportunity..."
+                <label htmlFor="contact-message" className="block text-text-secondary text-xs sm:text-sm font-medium mb-1.5">Message *</label>
+                <textarea id="contact-message" name="message" value={form.message} onChange={handleChange}
+                  required aria-required="true" rows={5} placeholder="Tell me about your project or opportunity..."
                   className={inputClass + ' resize-none'}
                   style={inputStyle}
                   onFocus={focusStyle} onBlur={blurStyle}
                 />
               </div>
 
-              {status === 'success' && (
-                <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center gap-2 px-4 py-3 rounded-xl text-success text-sm"
-                  style={{ background: 'rgba(100,255,218,0.08)', border: '1px solid rgba(100,255,218,0.25)' }}>
-                  <FiCheckCircle size={16} />
-                  Message sent! I'll get back to you within 24 hours.
-                </motion.div>
-              )}
-              {status === 'error' && (
-                <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
-                  className="flex items-start gap-2 px-4 py-3 rounded-xl text-red-400 text-sm"
-                  style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)' }}>
-                  <FiAlertCircle size={16} className="flex-shrink-0 mt-0.5" />
-                  <span>Something went wrong.{' '}
-                    <a href="mailto:mohankumar8096@gmail.com" className="underline hover:text-red-300 transition-colors">
-                      Email me directly
-                    </a>.
-                  </span>
-                </motion.div>
-              )}
+              {/* aria-live — screen readers announce status changes */}
+              <div aria-live="polite" aria-atomic="true">
+                {status === 'success' && (
+                  <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
+                    className="flex items-center gap-2 px-4 py-3 rounded-xl text-success text-sm"
+                    style={{ background: 'rgba(100,255,218,0.08)', border: '1px solid rgba(100,255,218,0.25)' }}>
+                    <FiCheckCircle size={16} aria-hidden="true" />
+                    Message sent! I'll get back to you within 24 hours.
+                  </motion.div>
+                )}
+                {status === 'error' && (
+                  <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
+                    className="flex items-start gap-2 px-4 py-3 rounded-xl text-red-400 text-sm"
+                    style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)' }}>
+                    <FiAlertCircle size={16} className="flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <span>Something went wrong.{' '}
+                      <a href="mailto:mohankumar8096@gmail.com" className="underline hover:text-red-300 transition-colors">
+                        Email me directly
+                      </a>.
+                    </span>
+                  </motion.div>
+                )}
+              </div>
 
               <motion.button type="submit" disabled={status === 'sending'}
                 whileHover={status !== 'sending' ? { scale: 1.02 } : {}}

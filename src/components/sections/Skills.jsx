@@ -27,7 +27,7 @@ function SkillCategory({ category, icon, skills, delay }) {
       style={{ border: '1px solid rgba(30,58,95,0.8)' }}
     >
       <div className="flex items-center gap-3 mb-5">
-        <span className="text-2xl">{icon}</span>
+        <span className="text-2xl" aria-hidden="true">{icon}</span>
         <h3 className="text-text-primary font-bold text-lg">{category}</h3>
       </div>
 

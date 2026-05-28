@@ -12,8 +12,9 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden"
       style={{ background: 'radial-gradient(ellipse at 20% 50%, rgba(0, 212, 255, 0.04) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(123, 47, 190, 0.06) 0%, transparent 60%), #020B18' }}
     >
-      {/* Animated background grid */}
+      {/* Animated background grid — decorative, hidden from screen readers */}
       <div
+        aria-hidden="true"
         className="absolute inset-0 pointer-events-none opacity-20"
         style={{
           backgroundImage: `
@@ -24,14 +25,16 @@ export default function Hero() {
         }}
       />
 
-      {/* Floating orbs — clamped so they never overflow viewport */}
+      {/* Floating orbs — decorative, hidden from screen readers */}
       <motion.div
+        aria-hidden="true"
         className="absolute top-1/4 right-0 w-72 h-72 md:w-96 md:h-96 rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(123, 47, 190, 0.08) 0%, transparent 70%)' }}
         animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
+        aria-hidden="true"
         className="absolute bottom-1/3 left-0 w-48 h-48 md:w-64 md:h-64 rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(0, 212, 255, 0.06) 0%, transparent 70%)' }}
         animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
@@ -190,8 +193,9 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex-shrink-0 relative mt-8 lg:mt-0"
           >
-            {/* Rotating outer ring */}
+            {/* Rotating outer ring — decorative */}
             <motion.div
+              aria-hidden="true"
               className="absolute inset-0 rounded-full pointer-events-none"
               style={{
                 background: 'conic-gradient(from 0deg, #00D4FF, #7B2FBE, transparent, #00D4FF)',
@@ -202,8 +206,9 @@ export default function Hero() {
               transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
             />
 
-            {/* Glow behind photo */}
+            {/* Glow behind photo — decorative */}
             <div
+              aria-hidden="true"
               className="absolute inset-2 rounded-full pointer-events-none"
               style={{ boxShadow: '0 0 60px rgba(0, 212, 255, 0.2), 0 0 120px rgba(123, 47, 190, 0.15)', borderRadius: '50%' }}
             />
@@ -249,8 +254,8 @@ export default function Hero() {
           transition={{ delay: 1.5 }}
         >
           <span className="text-xs font-mono tracking-widest uppercase">Scroll</span>
-          <div className="animate-bounce-chevron">
-            <svg width="20" height="12" viewBox="0 0 20 12" fill="none">
+          <div className="animate-bounce-chevron" aria-hidden="true">
+            <svg width="20" height="12" viewBox="0 0 20 12" fill="none" aria-hidden="true">
               <path d="M1 1L10 10L19 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
