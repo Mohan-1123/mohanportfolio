@@ -92,7 +92,8 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <a
               href="https://drive.google.com/uc?export=download&id=1mDMG0-kVr5aQyWnl1hDOOYHbBxgZceg3"
-              download="Mohan_Kumar_Nulu_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden md:flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 hover:shadow-glow text-background"
               style={{ background: 'linear-gradient(135deg, #00D4FF, #0099BB)' }}
             >
@@ -149,7 +150,8 @@ export default function Navbar() {
               <div className="pt-3 border-t" style={{ borderColor: 'rgba(30,58,95,0.6)' }}>
                 <a
                   href="https://drive.google.com/uc?export=download&id=1mDMG0-kVr5aQyWnl1hDOOYHbBxgZceg3"
-                  download="Mohan_Kumar_Nulu_Resume.pdf"
+                  target="_blank"
+              rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold text-background justify-center"
                   style={{ background: 'linear-gradient(135deg, #00D4FF, #0099BB)' }}
                   onClick={() => setMenuOpen(false)}

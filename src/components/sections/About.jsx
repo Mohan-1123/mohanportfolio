@@ -18,23 +18,23 @@ export default function About() {
       <div className="container-custom">
         <SectionHeading title="About Me" subtitle="Who I Am" />
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
           {/* Left — Bio */}
           <ScrollReveal direction="left">
             <div className="space-y-6">
-              <p className="text-text-secondary text-lg leading-relaxed">
+              <p className="text-text-secondary text-base md:text-lg leading-relaxed">
                 I'm a <span className="text-accent font-semibold">Full Stack MERN Engineer</span> with 4+ years of hands-on production experience at Caprus IT, Hyderabad. I architect and ship full-stack applications — from database schema design to React UIs to cloud deployments on AWS EC2.
               </p>
-              <p className="text-text-secondary text-lg leading-relaxed">
+              <p className="text-text-secondary text-base md:text-lg leading-relaxed">
                 My work spans education platforms, digital marketplaces, and real-time networking apps. I'm known for writing <span className="text-text-primary font-medium">scalable, maintainable TypeScript</span>, designing <span className="text-text-primary font-medium">role-based access systems</span>, and integrating AI services like <span className="text-text-primary font-medium">Azure Cognitive Services</span> and <span className="text-text-primary font-medium">Gemini API</span>.
               </p>
-              <p className="text-text-secondary text-lg leading-relaxed">
+              <p className="text-text-secondary text-base md:text-lg leading-relaxed">
                 Beyond code, I mentor junior developers, champion WCAG accessibility, and collaborate in fast-moving Agile teams. I'm currently open to <span className="text-success font-semibold">full-time opportunities</span> and <span className="text-success font-semibold">freelance projects</span>.
               </p>
 
-              {/* Traits */}
-              <div className="grid grid-cols-2 gap-4 pt-4">
+              {/* Traits — single column on xs, 2 cols on sm+ */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                 {traits.map(({ icon: Icon, label, desc }) => (
                   <motion.div
                     key={label}
@@ -56,7 +56,7 @@ export default function About() {
           {/* Right — Stats */}
           <ScrollReveal direction="right" delay={0.2}>
             <div className="grid grid-cols-2 gap-4">
-              {stats.map((stat, i) => (
+              {stats.map(stat => (
                 <StatCounter
                   key={stat.label}
                   value={stat.value}
@@ -66,14 +66,14 @@ export default function About() {
               ))}
             </div>
 
-            {/* Tech stack mini showcase */}
-            <div className="mt-8 glass rounded-2xl p-6" style={{ border: '1px solid rgba(30,58,95,0.8)' }}>
+            {/* Core stack */}
+            <div className="mt-6 glass rounded-2xl p-6" style={{ border: '1px solid rgba(30,58,95,0.8)' }}>
               <p className="text-text-secondary text-sm font-mono mb-4 tracking-wider uppercase">Core Stack</p>
-              <div className="flex flex-wrap gap-3 justify-center">
+              <div className="flex flex-wrap gap-2 justify-center">
                 {['React', 'Next.js', 'TypeScript', 'Node.js', 'MongoDB', 'AWS'].map(tech => (
                   <span
                     key={tech}
-                    className="px-4 py-2 rounded-lg text-sm font-mono font-medium text-accent"
+                    className="px-3 py-1.5 rounded-lg text-sm font-mono font-medium text-accent"
                     style={{ background: 'rgba(0, 212, 255, 0.08)', border: '1px solid rgba(0, 212, 255, 0.2)' }}
                   >
                     {tech}

@@ -3,6 +3,8 @@ import { TypeAnimation } from 'react-type-animation'
 import { Link } from 'react-scroll'
 import { FiGithub, FiLinkedin, FiMail, FiDownload, FiArrowRight } from 'react-icons/fi'
 
+const RESUME_URL = 'https://drive.google.com/uc?export=download&id=1mDMG0-kVr5aQyWnl1hDOOYHbBxgZceg3'
+
 export default function Hero() {
   return (
     <section
@@ -22,35 +24,35 @@ export default function Hero() {
         }}
       />
 
-      {/* Floating orbs */}
+      {/* Floating orbs — clamped so they never overflow viewport */}
       <motion.div
-        className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full pointer-events-none"
+        className="absolute top-1/4 right-0 w-72 h-72 md:w-96 md:h-96 rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(123, 47, 190, 0.08) 0%, transparent 70%)' }}
         animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute bottom-1/3 left-1/4 w-64 h-64 rounded-full pointer-events-none"
+        className="absolute bottom-1/3 left-0 w-48 h-48 md:w-64 md:h-64 rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(0, 212, 255, 0.06) 0%, transparent 70%)' }}
         animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
         transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
       />
 
-      <div className="container-custom section-padding relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+      <div className="container-custom section-padding relative z-10 w-full">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
 
           {/* Left Content */}
-          <div className="flex-1 text-center lg:text-left">
+          <div className="flex-1 text-center lg:text-left w-full min-w-0">
 
             {/* Status pill */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-6"
               style={{ borderColor: 'rgba(100, 255, 218, 0.3)', backgroundColor: 'rgba(100, 255, 218, 0.05)' }}
             >
-              <span className="animate-pulse-ring w-2 h-2 rounded-full bg-success inline-block" />
+              <span className="animate-pulse-ring w-2 h-2 rounded-full bg-success inline-block flex-shrink-0" />
               <span className="text-success text-sm font-medium">Available for Full-time & Freelance</span>
             </motion.div>
 
@@ -59,7 +61,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4"
             >
               <span className="text-gradient-animate">Mohan Kumar</span>
               <br />
@@ -71,7 +73,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl md:text-2xl font-semibold mb-4 h-8"
+              className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 min-h-[2rem]"
               style={{ color: '#00D4FF' }}
             >
               <TypeAnimation
@@ -93,7 +95,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-text-secondary text-lg md:text-xl leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0"
+              className="text-text-secondary text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0"
             >
               Building scalable web apps that perform at scale —{' '}
               <span className="text-accent font-medium">4+ years</span> of production experience,{' '}
@@ -105,12 +107,13 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap gap-4 justify-center lg:justify-start mb-10"
+              className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center lg:justify-start mb-10"
             >
               <a
-                href="https://drive.google.com/uc?export=download&id=1mDMG0-kVr5aQyWnl1hDOOYHbBxgZceg3"
-                download="Mohan_Kumar_Nulu_Resume.pdf"
-                className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-background transition-all duration-300 hover:scale-105 hover:shadow-glow"
+                href={RESUME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-background transition-all duration-300 hover:scale-105 hover:shadow-glow"
                 style={{ background: 'linear-gradient(135deg, #00D4FF, #0099BB)' }}
               >
                 <FiDownload size={18} />
@@ -122,7 +125,7 @@ export default function Hero() {
                 smooth
                 duration={600}
                 offset={-80}
-                className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold border border-accent text-accent transition-all duration-300 hover:bg-accent hover:text-background hover:scale-105 hover:shadow-glow cursor-pointer"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold border border-accent text-accent transition-all duration-300 hover:bg-accent hover:text-background hover:scale-105 hover:shadow-glow cursor-pointer"
               >
                 View Projects
                 <FiArrowRight size={18} />
@@ -133,7 +136,7 @@ export default function Hero() {
                 smooth
                 duration={600}
                 offset={-80}
-                className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold border transition-all duration-300 hover:scale-105 cursor-pointer"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold border transition-all duration-300 hover:scale-105 cursor-pointer"
                 style={{
                   borderColor: 'rgba(123, 47, 190, 0.6)',
                   color: '#C084FC',
@@ -157,7 +160,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex gap-5 justify-center lg:justify-start"
+              className="flex gap-4 justify-center lg:justify-start"
             >
               {[
                 { icon: FiGithub, href: 'https://github.com/Mohan-1123', label: 'GitHub' },
@@ -185,11 +188,11 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex-shrink-0 relative"
+            className="flex-shrink-0 relative mt-8 lg:mt-0"
           >
             {/* Rotating outer ring */}
             <motion.div
-              className="absolute inset-0 rounded-full"
+              className="absolute inset-0 rounded-full pointer-events-none"
               style={{
                 background: 'conic-gradient(from 0deg, #00D4FF, #7B2FBE, transparent, #00D4FF)',
                 padding: '3px',
@@ -201,29 +204,28 @@ export default function Hero() {
 
             {/* Glow behind photo */}
             <div
-              className="absolute inset-2 rounded-full"
+              className="absolute inset-2 rounded-full pointer-events-none"
               style={{ boxShadow: '0 0 60px rgba(0, 212, 255, 0.2), 0 0 120px rgba(123, 47, 190, 0.15)', borderRadius: '50%' }}
             />
 
             {/* Photo container */}
             <div
-              className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden"
+              className="relative w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full overflow-hidden"
               style={{ border: '3px solid rgba(0, 212, 255, 0.3)' }}
             >
-              {/* Placeholder avatar when no photo */}
               <div
-                className="w-full h-full flex items-center justify-center text-7xl font-bold"
+                className="w-full h-full flex items-center justify-center font-bold"
                 style={{ background: 'linear-gradient(135deg, #0D1F35, #112240)' }}
               >
-                <span className="text-gradient" style={{ fontSize: '100px' }}>MK</span>
+                <span className="text-gradient" style={{ fontSize: '80px' }}>MK</span>
               </div>
             </div>
 
-            {/* Floating tech pills */}
+            {/* Floating tech pills — repositioned to stay inside on mobile */}
             <motion.div
               animate={{ y: [-5, 5, -5] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -top-4 -right-4 px-3 py-1.5 rounded-full text-xs font-mono font-semibold text-background"
+              className="absolute -top-3 -right-2 sm:-right-4 px-2.5 py-1.5 rounded-full text-xs font-mono font-semibold text-background whitespace-nowrap"
               style={{ background: 'linear-gradient(135deg, #00D4FF, #0099BB)', boxShadow: '0 4px 15px rgba(0, 212, 255, 0.4)' }}
             >
               React Expert
@@ -231,7 +233,7 @@ export default function Hero() {
             <motion.div
               animate={{ y: [5, -5, 5] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-              className="absolute -bottom-4 -left-4 px-3 py-1.5 rounded-full text-xs font-mono font-semibold"
+              className="absolute -bottom-3 -left-2 sm:-left-4 px-2.5 py-1.5 rounded-full text-xs font-mono font-semibold whitespace-nowrap"
               style={{ background: 'rgba(123, 47, 190, 0.2)', border: '1px solid rgba(123, 47, 190, 0.5)', color: '#C084FC', boxShadow: '0 4px 15px rgba(123, 47, 190, 0.3)' }}
             >
               Node.js + MongoDB
@@ -241,7 +243,7 @@ export default function Hero() {
 
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-text-muted"
+          className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-text-muted"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}

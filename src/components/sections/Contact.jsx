@@ -173,7 +173,6 @@ export default function Contact() {
                     style={{
                       background: 'rgba(17, 34, 64, 0.6)',
                       border: '1px solid rgba(30,58,95,0.8)',
-                      focusRingColor: 'rgba(0, 212, 255, 0.4)',
                     }}
                     onFocus={e => e.target.style.borderColor = 'rgba(0, 212, 255, 0.5)'}
                     onBlur={e => e.target.style.borderColor = 'rgba(30,58,95,0.8)'}

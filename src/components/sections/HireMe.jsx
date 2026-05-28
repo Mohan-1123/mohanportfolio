@@ -110,13 +110,13 @@ export default function HireMe() {
               I'd love to hear about it and discuss how I can help.
             </p>
 
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center items-center">
               <Link
                 to="contact"
                 smooth
                 duration={600}
                 offset={-80}
-                className="flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-background transition-all duration-300 hover:scale-105 hover:shadow-glow cursor-pointer text-lg"
+                className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-background transition-all duration-300 hover:scale-105 hover:shadow-glow cursor-pointer text-lg w-full sm:w-auto"
                 style={{ background: 'linear-gradient(135deg, #00D4FF, #0099BB)' }}
               >
                 Get in Touch
@@ -124,7 +124,7 @@ export default function HireMe() {
               </Link>
               <a
                 href="mailto:mohankumar8096@gmail.com"
-                className="flex items-center gap-2 px-8 py-4 rounded-xl font-semibold border transition-all duration-300 hover:scale-105 text-lg"
+                className="flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-semibold border transition-all duration-300 hover:scale-105 text-base w-full sm:w-auto break-all text-center"
                 style={{ borderColor: 'rgba(0,212,255,0.3)', color: '#00D4FF', background: 'rgba(0,212,255,0.05)' }}
               >
                 mohankumar8096@gmail.com
