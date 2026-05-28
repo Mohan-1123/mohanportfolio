@@ -108,7 +108,7 @@ export default function Hero() {
               className="flex flex-wrap gap-4 justify-center lg:justify-start mb-10"
             >
               <a
-                href="/resume.pdf"
+                href="https://drive.google.com/uc?export=download&id=1mDMG0-kVr5aQyWnl1hDOOYHbBxgZceg3"
                 download="Mohan_Kumar_Nulu_Resume.pdf"
                 className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-background transition-all duration-300 hover:scale-105 hover:shadow-glow"
                 style={{ background: 'linear-gradient(135deg, #00D4FF, #0099BB)' }}
