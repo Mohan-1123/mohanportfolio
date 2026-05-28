@@ -1,14 +1,5 @@
 export const educationData = [
   {
-    type: 'certification',
-    title: 'NxtWave CCBP 4.0',
-    subtitle: 'Full Stack Development (MERN)',
-    institution: 'NxtWave',
-    duration: 'Mar 2021 – Dec 2021',
-    description: 'Industry-grade certification covering React.js, Node.js, Express.js, MongoDB, REST APIs, and JavaScript (ES6+).',
-    skills: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'REST APIs', 'JavaScript ES6+'],
-  },
-  {
     type: 'education',
     title: 'Bachelor of Technology',
     subtitle: 'Mechanical Engineering',

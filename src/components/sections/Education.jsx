@@ -90,9 +90,9 @@ export default function Education() {
   return (
     <section id="education" className="section-padding" style={{ background: 'linear-gradient(180deg, transparent, rgba(13,31,53,0.2), transparent)' }}>
       <div className="container-custom">
-        <SectionHeading title="Education & Certifications" subtitle="My Background" />
+        <SectionHeading title="Education" subtitle="My Background" />
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="flex justify-center max-w-lg mx-auto">
           {educationData.map((item, i) => (
             <EduCard key={item.title} item={item} index={i} />
           ))}
